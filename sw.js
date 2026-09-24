@@ -1,4 +1,4 @@
-const VERSION = "sourcing-calc-1.5.0";
+const VERSION = "sourcing-calc-1.5.1";
 const ASSETS = [
   "./",
   "./index.html",
@@ -13,6 +13,11 @@ const ASSETS = [
   "./icons/16.png",
   "./icons/48.png",
   "./icons/128.png",
+  "./icons/180.png",
+  "./icons/192.png",
+  "./icons/512.png",
+  "./icons/192-maskable.png",
+  "./icons/512-maskable.png",
 ];
 
 self.addEventListener("install", (event) => {

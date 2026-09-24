@@ -1,13 +1,18 @@
 {
+  "id": "./",
   "name": "仕入れ電卓",
   "short_name": "仕入れ電卓",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "display_override": ["standalone"],
   "background_color": "#141820",
   "theme_color": "#141820",
   "lang": "ja",
   "icons": [
-    { "src": "icons/48.png", "sizes": "48x48", "type": "image/png" },
-    { "src": "icons/128.png", "sizes": "128x128", "type": "image/png" }
+    { "src": "icons/192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
