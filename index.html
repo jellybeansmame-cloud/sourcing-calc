@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#141820">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="仕入れ電卓">
+  <title>仕入れ電卓</title>
+  <link rel="stylesheet" href="sidepanel.css">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="icons/48.png">
+  <link rel="apple-touch-icon" href="icons/128.png">
+</head>
+<body>
+  <header>
+    <div class="title-row">
+      <h1>仕入れ電卓</h1>
+      <a id="openSettings" class="secondary" href="options.html">サイトの設定</a>
+    </div>
+    <p>調べた売価から入札目安を出します。手数料は「サイトの設定」から登録します。</p>
+  </header>
+
+  <div class="modes" role="tablist">
+    <button type="button" id="modeBid" class="mode on">売価 → 入札目安</button>
+    <button type="button" id="modeSale" class="mode">現在価格 → 販売目安</button>
+  </div>
+
+  <section class="panel">
+    <div id="saleFields">
+      <label for="salePrice">想定売価（円）</label>
+      <input id="salePrice" inputmode="numeric" placeholder="例: 30000">
+    </div>
+    <div id="bidFields" hidden>
+      <label for="bidPrice">現在価格／入札予定額（円）</label>
+      <input id="bidPrice" inputmode="numeric" placeholder="例: 8000">
+    </div>
+
+    <label for="profitRate">利益率（販売手取に対する％）</label>
+    <input id="profitRate" inputmode="decimal" value="20">
+
+    <label for="sellSite">出品先</label>
+    <select id="sellSite"></select>
+
+    <label for="buySite">入札先</label>
+    <select id="buySite"></select>
+
+    <label class="check">
+      <input type="checkbox" id="photo" checked>
+      写真撮影を頼む
+    </label>
+
+    <label for="buyShip">仕入送料（円・空なら無視）</label>
+    <input id="buyShip" inputmode="numeric" placeholder="空欄可">
+
+    <label for="sellShip">販売送料（円・空なら無視）</label>
+    <input id="sellShip" inputmode="numeric" placeholder="空欄可">
+  </section>
+
+  <section id="status" class="status idle">出品先・入札先を選び、金額を入れて計算してください。</section>
+
+  <section id="result" class="result" hidden>
+    <div id="answer" class="answer"></div>
+    <table class="lines">
+      <tbody id="lines"></tbody>
+    </table>
+  </section>
+
+  <script src="calc.js"></script>
+  <script src="store.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

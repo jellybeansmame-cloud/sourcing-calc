@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#141820">
+  <title>サイトの設定 - 仕入れ電卓</title>
+  <link rel="stylesheet" href="sidepanel.css">
+  <link rel="icon" href="icons/48.png">
+</head>
+<body class="page">
+  <header>
+    <div class="title-row">
+      <h1>サイトの設定</h1>
+      <a id="backToCalc" class="back-link" href="index.html" hidden>計算機へ戻る</a>
+    </div>
+    <p>出品先・入札先は同じサイト一覧から選びます。変更したら「保存」を押してください。保存するまで計算機には反映されません。</p>
+  </header>
+
+  <section class="panel">
+    <label for="taxRate">消費税率（％）</label>
+    <input id="taxRate" inputmode="decimal" value="10">
+    <p class="hint">日本の税率です。サイトごとではなく全体で1つです。税込サイトは、各サイトのチェックを外してください。</p>
+
+    <div class="toolbar">
+      <div id="siteSelectWrap" hidden>
+        <label for="siteSelect">編集するサイト</label>
+        <select id="siteSelect"></select>
+      </div>
+      <button type="button" id="addSite" class="secondary">サイトを追加</button>
+    </div>
+  </section>
+
+  <div id="editor"></div>
+
+  <div class="save-bar">
+    <button type="button" id="save">保存</button>
+    <p id="saveStatus" class="ok"></p>
+  </div>
+
+  <script src="calc.js"></script>
+  <script src="store.js"></script>
+  <script src="sites-ui.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
