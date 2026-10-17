@@ -61,6 +61,47 @@ input, select, textarea {
   font: inherit;
 }
 
+.yen-kilo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #161b26;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.yen-kilo:focus-within {
+  border-color: var(--accent);
+}
+.yen-kilo input {
+  width: auto;
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.yen-kilo input:focus {
+  outline: none;
+}
+.yen-kilo-suffix {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0 10px 0 0;
+  background: none;
+  border: 0;
+  color: #c5cad3;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.yen-kilo-suffix .unit {
+  font-size: 12px;
+  color: var(--muted);
+}
+
 .row { display: flex; gap: 8px; margin-top: 12px; }
 
 button {
@@ -181,10 +222,11 @@ button.small { flex: 0; padding: 4px 8px; font-size: 11px; }
     padding: 12px;
     padding-bottom: max(16px, env(safe-area-inset-bottom));
   }
-  input, select, button, a.secondary {
+  input, select, button, a.secondary, .yen-kilo {
     min-height: 44px;
     font-size: 16px;
   }
+  .yen-kilo-suffix .unit { font-size: 13px; }
   button.small { min-height: 36px; }
   .inline { flex-wrap: wrap; }
   .title-row { align-items: flex-start; }

@@ -1,4 +1,4 @@
-const VERSION = "sourcing-calc-1.5.1";
+const VERSION = "sourcing-calc-1.6.1";
 const ASSETS = [
   "./",
   "./index.html",

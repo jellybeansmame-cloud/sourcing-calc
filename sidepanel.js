@@ -145,7 +145,8 @@ function scheduleCalc() {
 }
 
 function calculate() {
-  const hasMain = mode === "bid" ? Number(salePrice.value) > 0 : bidPrice.value.trim() !== "" && Number(bidPrice.value) >= 0;
+  const saleYen = salePriceInYen();
+  const hasMain = mode === "bid" ? saleYen > 0 : bidPrice.value.trim() !== "" && Number(bidPrice.value) >= 0;
   if (!sellSite.value || !buySite.value || !hasMain) {
     resultEl.hidden = true;
     setStatus("出品先・入札先と金額を入れると、ここに結果が出ます。", "idle");
@@ -154,7 +155,7 @@ function calculate() {
   const payload = {
     sellSiteId: sellSite.value,
     buySiteId: buySite.value,
-    salePrice: salePrice.value,
+    salePrice: saleYen,
     bidPrice: bidPrice.value,
     profitRate: profitRate.value,
     photo: photo.checked,
@@ -206,6 +207,14 @@ function renderResult(res) {
     tr.append(name, yen);
     linesEl.append(tr);
   }
+}
+
+function salePriceInYen() {
+  const raw = String(salePrice.value || "").trim();
+  if (!raw) return 0;
+  const n = Number(raw);
+  if (!Number.isFinite(n) || n <= 0) return 0;
+  return Math.round(n * 1000);
 }
 
 function setStatus(text, kind) {

@@ -29,8 +29,11 @@
 
   <section class="panel">
     <div id="saleFields">
-      <label for="salePrice">想定売価（円）</label>
-      <input id="salePrice" inputmode="numeric" placeholder="例: 30000">
+      <label for="salePrice">想定売価</label>
+      <div class="yen-kilo">
+        <input id="salePrice" inputmode="numeric" placeholder="30">
+        <span class="yen-kilo-suffix" aria-hidden="true"><span class="zeros">,000</span><span class="unit">円</span></span>
+      </div>
     </div>
     <div id="bidFields" hidden>
       <label for="bidPrice">現在価格／入札予定額（円）</label>
